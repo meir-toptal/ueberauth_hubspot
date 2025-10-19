@@ -14,7 +14,7 @@ defmodule Ueberauth.Strategy.Hubspot do
   """
   @impl Ueberauth.Strategy
   def handle_request!(conn) do
-    scopes = conn.params["scope"] || option(conn, :default_scope)
+    scopes = conn.params["scope"] || option(conn, :scope) || option(conn, :default_scope)
 
     params =
       [scope: scopes]
